@@ -1,0 +1,28 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.albums {
+  color: var(--first-color);
+  margin: 0 10px;
+}
+
+.albums-list {
+  list-style-type: none;
+}
+.albums-list * {
+  padding: 2px 0 0;
+  color: var(--first-color);
+  text-decoration: none;
+}
+.albums-list li * {
+  padding: 0 2px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.albums-list li *:hover {
+  color: var(--acc-color);
+  transition: 0.2s;
+}

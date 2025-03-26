@@ -1,0 +1,7 @@
+<h3>Photos for this album</h3>
+<div *ngIf="photos">
+  <div *ngFor="let photo of photos">
+    <img [src]="photo.url" alt="{{photo.title}} photo">
+    <p>{{photo.title}}</p>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="flex-container">
+  <h3 class="albums">Albums</h3>
+  <button class="albums-button" (click)="open(content)">Add album</button><br>
+</div>
+<!--bootstrap-->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Album list update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="details">New album</label>
+        <div class="input-group">
+          <input
+            type="text"
+            id="details"
+            class="form-control"
+            placeholder="New album"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="albums-button" (click)="albumfetchService.addAlbum(textFromForm())">Save</button>
+  </div>
+</ng-template>
+<!--end bootstrap-->
+
+<ul *ngIf="loaded" class="albums-list">
+  <li *ngFor="let album of albums">
+    <input class="" type="checkbox" (click)="albumfetchService.deleteAlbum(album.id)"/>
+    <a [routerLink]="['/albums', album.id]">{{album.id}}</a>
+  </li>
+</ul>

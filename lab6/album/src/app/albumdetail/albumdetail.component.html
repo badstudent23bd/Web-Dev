@@ -1,0 +1,31 @@
+<h3>Album details</h3>
+<p>{{album?.title}}</p>
+<!--bootstrap-->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Album update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="details">Album details</label>
+        <div class="input-group">
+          <input
+            type="text"
+            id="details"
+            name="dp"
+            class="form-control"
+            placeholder="New album details"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="albums-button" (click)="albumfetchService.setAlbumTitle(album.id, textFromForm())">Save</button>
+  </div>
+</ng-template>
+<button class="albums-button" (click)="open(content)">Edit </button><br>
+<!--end bootstrap-->
+<a [routerLink]="['/albums', album?.id, 'photos']" class="albums-link">View photos</a>
